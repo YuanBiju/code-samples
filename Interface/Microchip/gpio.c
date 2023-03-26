@@ -36,7 +36,7 @@ stGpioPin asGpioPins[] =
 {
     {GPIO_PORT_A,0},
     {GPIO_PORT_A,1},
-}
+};
 
 
 /* ************************************************************************** */
@@ -44,10 +44,6 @@ stGpioPin asGpioPins[] =
 // Section: Local Functions                                                   */
 /* ************************************************************************** */
 /* ************************************************************************** */
-
-static int ExampleLocalFunction(int param1, int param2) {
-    return 0;
-}
 
 
 /* ************************************************************************** */
@@ -57,7 +53,7 @@ static int ExampleLocalFunction(int param1, int param2) {
 /* ************************************************************************** */
 uint8_t gpioInterface_readGpioPin(eGpioPin GpioPin)
 {
-    return (GPIO_PortRead(asGpioPins[GpioPin].port)&(0x01<<asGpioPins[GpioPin].pinNo);
+    return (GPIO_PortRead(asGpioPins[GpioPin].port)&(0x01<<asGpioPins[GpioPin].pinNo));
 }
 
 void gpioInterface_SetGpioPin(eGpioPin GpioPin)
@@ -67,12 +63,12 @@ void gpioInterface_SetGpioPin(eGpioPin GpioPin)
 
 void gpioInterface_ResetGpioPin(eGpioPin GpioPin)
 {
-    void GPIO_PortClear((asGpioPins[GpioPin].port), (0x01<<(asGpioPins[GpioPin].pinNo)));
+    GPIO_PortClear((asGpioPins[GpioPin].port), (0x01<<(asGpioPins[GpioPin].pinNo)));
 }
 
 void gpioInterface_ToggleGpioPin(eGpioPin GpioPin)
 {
-    void GPIO_PortToggle((asGpioPins[GpioPin].port), (0x01<<(asGpioPins[GpioPin].pinNo)));
+    GPIO_PortToggle((asGpioPins[GpioPin].port), (0x01<<(asGpioPins[GpioPin].pinNo)));
 }
 
 /* *****************************************************************************
